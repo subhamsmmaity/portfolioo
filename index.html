@@ -1,0 +1,664 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subham Maity — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#D9481D;
+    --orange-dark:#B93B16;
+    --ink:#141210;
+    --cream:#F6F2EC;
+    --paper:#FFFFFF;
+    --line:#E9E3D9;
+    --muted:#7A7268;
+    --disp:'Archivo', sans-serif;
+    --sans:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{padding:80px 0;}
+  @media(max-width:700px){ section{padding:56px 0;} }
+
+  /* ---------------- NAV ---------------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:20px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:-.02em;}
+  .logo sup{font-size:10px;color:var(--orange);}
+  .nav-links{display:flex;gap:34px;font-size:14px;font-weight:600;}
+  .nav-links a{opacity:.75;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{
+    display:flex;align-items:center;gap:16px;
+  }
+  .burger{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    flex-shrink:0;
+  }
+  .burger span{display:block;width:14px;height:1.4px;background:var(--ink);position:relative;}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:14px;height:1.4px;background:var(--ink);}
+  .burger span::before{top:-4px;} .burger span::after{top:4px;}
+  @media(max-width:760px){ .nav-links{display:none;} }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    background:var(--orange);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    padding:56px 0 0;
+  }
+  .hero-top{
+    max-width:1180px;margin:0 auto;padding:0 24px;
+    display:flex;justify-content:space-between;align-items:flex-start;
+    position:relative;z-index:3;
+  }
+  .hero-tagline{max-width:300px;font-size:14px;line-height:1.55;opacity:.92;}
+  .hero-year{font-family:var(--disp);font-size:13px;opacity:.75;}
+  .hero-bg-word{
+    font-family:var(--disp);
+    font-weight:900;
+    font-size:min(20vw,240px);
+    line-height:1;
+    letter-spacing:-.03em;
+    color:rgba(255,255,255,0.12);
+    text-align:center;
+    white-space:nowrap;
+    position:absolute;
+    top:38px; left:0; right:0;
+    z-index:1;
+    user-select:none;
+  }
+  .hero-stage{
+    position:relative;
+    max-width:1180px;margin:0 auto;
+    padding:0 24px;
+    z-index:2;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+  }
+  .hero-quote{
+    max-width:340px;
+    flex-shrink:1;
+  }
+  .hero-quote p{
+    font-family:var(--disp);
+    font-weight:700;
+    font-size:clamp(20px,2.6vw,28px);
+    line-height:1.3;
+    letter-spacing:-.01em;
+    color:#fff;
+  }
+  .hero-quote p::before{content:"“";}
+  .hero-quote p::after{content:"”";}
+  .hero-quote span{
+    display:block;
+    margin-top:14px;
+    font-size:12.5px;
+    font-weight:600;
+    color:rgba(255,255,255,.75);
+  }
+  @media(max-width:900px){ .hero-quote{display:none;} }
+  .hero-portrait-wrap{
+    width:min(58%, 400px);
+    position:relative;
+    z-index:2;
+    flex-shrink:0;
+  }
+  .hero-portrait{
+    width:100%;
+    height:clamp(240px, 32vw, 380px);
+    object-fit:cover;
+    object-position:top center;
+    border-radius:14px;
+    filter:grayscale(.4) contrast(1.1);
+    display:block;
+    mix-blend-mode:luminosity;
+    opacity:.88;
+  }
+  .hero-badge{
+    position:absolute;
+    top:-18px; right:-14px;
+    z-index:6;
+    background:#fff;
+    color:var(--ink);
+    border-radius:10px;
+    padding:8px 10px;
+    box-shadow:0 12px 30px rgba(0,0,0,.3);
+    display:flex;align-items:center;gap:8px;
+    font-size:11px;font-weight:700;
+    white-space:nowrap;
+  }
+  .hero-badge .dot{width:26px;height:26px;border-radius:6px;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;flex-shrink:0;}
+  .hero-talk-float{
+    position:absolute;
+    bottom:-18px; left:-14px;
+    z-index:6;
+  }
+  .hero-bottom{
+    max-width:1180px;margin:0 auto;padding:0 24px 0;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    position:relative; z-index:3;
+    margin-top:36px;
+  }
+  .hero-name{
+    font-family:var(--disp);
+    font-weight:900;
+    font-size:min(13vw,108px);
+    line-height:.85;
+    letter-spacing:-.02em;
+  }
+  .hero-role{font-size:13px;font-weight:600;opacity:.85;margin-top:10px;max-width:230px;}
+  .talk-card{
+    background:var(--ink);
+    border-radius:12px;
+    padding:12px 16px;
+    display:flex;align-items:center;gap:12px;
+    margin-bottom:10px;
+  }
+  .talk-card .av{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--orange);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--disp);font-weight:800;font-size:13px;
+  }
+  .talk-card .tc-text{font-size:12px;}
+  .talk-card .tc-text b{display:block;font-size:13px;}
+  .talk-card .arrow{margin-left:10px;font-size:15px;}
+  .hero-spacer{height:70px;}
+  @media(max-width:760px){
+    .hero-top{flex-direction:column;gap:14px;}
+    .hero-stage{justify-content:center;}
+    .hero-portrait-wrap{width:80%;margin:0 auto 30px;}
+    .hero-badge{right:0;top:-16px;font-size:10px;padding:7px 9px;}
+    .hero-talk-float{left:0;bottom:-40px;}
+    .talk-card{padding:10px 12px;}
+    .hero-bottom{flex-direction:column;align-items:flex-start;gap:18px;margin-top:56px;}
+    .hero-name{font-size:16vw;}
+  }
+
+  /* ---------------- LOGO / STACK STRIP ---------------- */
+  .strip{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .strip-inner{
+    max-width:1180px;margin:0 auto;padding:26px 24px;
+    display:flex;align-items:center;gap:36px;flex-wrap:wrap;
+  }
+  .strip-label{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;line-height:1.3;flex-shrink:0;}
+  .stack-row{display:flex;gap:28px;flex-wrap:wrap;}
+  .stack-item{font-family:var(--disp);font-weight:800;font-size:16px;color:var(--ink);opacity:.55;letter-spacing:-.01em;}
+
+  /* ---------------- SECTION HEADING ---------------- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+    margin-bottom:40px;flex-wrap:wrap;
+  }
+  .section-title{
+    font-family:var(--disp);font-weight:800;font-size:clamp(28px,4vw,42px);
+    letter-spacing:-.02em;line-height:1.08;max-width:620px;
+  }
+  .section-title .accent{color:var(--orange);}
+  .section-sub{font-size:14px;color:var(--muted);max-width:280px;}
+
+  /* ---------------- BENTO GRID ---------------- */
+  .bento{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  @media(max-width:700px){ .bento{grid-template-columns:1fr;} }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px;
+  }
+  .card-tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+    margin-bottom:18px;
+  }
+  .card-tag .sw{width:7px;height:7px;border-radius:50%;background:var(--orange);}
+  .stat-num{font-family:var(--disp);font-weight:900;font-size:52px;line-height:1;color:var(--ink);}
+  .stat-desc{font-size:13px;color:var(--muted);margin-top:10px;max-width:220px;}
+  .quote-card{background:var(--ink);color:#fff;border:none;}
+  .quote-card p{font-size:16px;line-height:1.6;font-weight:500;}
+  .quote-who{display:flex;align-items:center;gap:10px;margin-top:20px;}
+  .quote-who .av{width:34px;height:34px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:800;font-size:13px;}
+  .quote-who .name{font-size:13px;font-weight:700;}
+  .quote-who .role{font-size:11.5px;color:#bbb;}
+  .lang-card .lang-row{margin-bottom:16px;}
+  .lang-row-top{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:6px;}
+  .lang-row-top span.pct{color:var(--muted);font-weight:400;}
+  .barbg{height:6px;background:var(--line);border-radius:4px;overflow:hidden;}
+  .barfill{height:100%;background:var(--orange);border-radius:4px;}
+
+  /* ---------------- SKILL / PROJECT CARDS ---------------- */
+  .grid3{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  @media(max-width:900px){ .grid3{grid-template-columns:1fr 1fr;} }
+  @media(max-width:600px){ .grid3{grid-template-columns:1fr;} }
+  .skill-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  }
+  .skill-top{height:120px;display:flex;align-items:center;justify-content:center;}
+  .skill-top span{font-family:var(--disp);font-weight:900;font-size:30px;color:#fff;}
+  .skill-body{padding:20px;}
+  .skill-body h3{font-family:var(--disp);font-size:17px;font-weight:800;margin-bottom:8px;}
+  .skill-body p{font-size:13px;color:var(--muted);}
+
+  /* ---------------- EDUCATION TIMELINE ---------------- */
+  .edu-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    padding:30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+  }
+  .edu-left{display:flex;align-items:center;gap:18px;}
+  .edu-icon{width:52px;height:52px;border-radius:12px;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;flex-shrink:0;}
+  .edu-title{font-family:var(--disp);font-weight:800;font-size:19px;}
+  .edu-sub{font-size:13.5px;color:var(--muted);margin-top:4px;}
+  .edu-years{
+    font-family:var(--disp);font-weight:800;font-size:14px;
+    border:1px solid var(--line);border-radius:20px;padding:8px 18px;
+  }
+
+  /* ---------------- CERTIFICATIONS ---------------- */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  @media(max-width:900px){ .cert-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:600px){ .cert-grid{grid-template-columns:1fr;} }
+  .cert-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:13.5px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .cert-check{
+    width:20px;height:20px;border-radius:50%;
+    background:var(--orange);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;flex-shrink:0;
+  }
+
+  /* ---------------- CONTACT ---------------- */
+  .contact{background:var(--ink);color:#fff;}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  }
+  @media(max-width:800px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-big{
+    font-family:var(--disp);font-weight:900;
+    font-size:clamp(46px,7vw,90px);
+    line-height:.92;letter-spacing:-.02em;
+  }
+  .contact-big span{display:block;}
+  .contact-big .out{-webkit-text-stroke:1.5px #fff;color:transparent;}
+  .contact-note{font-size:14px;color:#bbb;max-width:320px;margin-top:20px;}
+  .form-card{
+    background:#fff;color:var(--ink);border-radius:16px;padding:30px;
+  }
+  .form-card h3{font-family:var(--disp);font-weight:800;font-size:19px;margin-bottom:20px;}
+  .field{margin-bottom:16px;}
+  .field label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);display:block;margin-bottom:6px;}
+  .field input,.field textarea{
+    width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 13px;
+    font-family:var(--sans);font-size:14px;background:var(--cream);color:var(--ink);
+    outline:none;
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--orange);}
+  .field textarea{resize:vertical;min-height:80px;}
+  .send-btn{
+    width:100%;background:var(--ink);color:#fff;border:none;border-radius:8px;
+    padding:13px;font-family:var(--sans);font-weight:700;font-size:14px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .send-btn:hover{background:var(--orange);}
+
+  /* ---------------- FOOTER ---------------- */
+  footer{
+    background:var(--ink);color:#bbb;border-top:1px solid #2a2a2a;
+    padding:26px 0;
+  }
+  .footer-inner{
+    max-width:1180px;margin:0 auto;padding:0 24px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    font-size:12.5px;
+  }
+  .footer-inner a{opacity:.8;}
+  .footer-inner a:hover{opacity:1;color:#fff;}
+  .footer-links{display:flex;gap:20px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Subham<sup>●</sup></div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <div class="burger"><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <div class="hero-bg-word">SUBHAM</div>
+  <div class="hero-top">
+    <p class="hero-tagline">I'm building user-focused web experiences — simple, functional, and shaped by everything I'm learning right now.</p>
+    <span class="hero-year">©2026</span>
+  </div>
+
+  <div class="hero-stage">
+    <div class="hero-quote">
+      <p>Code is like humor. When you have to explain it, it's bad.</p>
+      <span>— Cory House, software developer</span>
+    </div>
+    <div class="hero-portrait-wrap">
+      <img class="hero-portrait" src="https://4g6fwcu7v0.ucarecd.net/6c955a0a-b89b-4e17-9024-e04e65393122/-/preview/1024x1280/" alt="Subham Maity">
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div>
+      <div class="hero-name">SUBHAM</div>
+      <p class="hero-role">BCA Student · Aspiring Web Developer · Purba Medinipur, West Bengal</p>
+    </div>
+  </div>
+  <div class="hero-spacer"></div>
+</header>
+
+<!-- ============ STACK STRIP ============ -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-label">Currently<br>learning</span>
+    <div class="stack-row">
+      <span class="stack-item">HTML</span>
+      <span class="stack-item">CSS</span>
+      <span class="stack-item">JavaScript</span>
+      <span class="stack-item">Python</span>
+      <span class="stack-item">Java</span>
+      <span class="stack-item">SQL</span>
+      <span class="stack-item">Git &amp; GitHub</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ OVERVIEW / BENTO ============ -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">About me</span>
+        <h2 class="section-title">Early in the journey, <span class="accent">serious about the craft.</span></h2>
+      </div>
+      <p class="section-sub">I enjoy creating websites and practical projects while sharpening my problem-solving and coding skills — with the goal of a real career in software.</p>
+    </div>
+
+    <div class="bento">
+      <div class="card">
+        <span class="card-tag"><span class="sw"></span>Education</span>
+        <div class="stat-num">2025</div>
+        <p class="stat-desc">Started my BCA at Centurion University of Technology and Management — graduating 2029.</p>
+      </div>
+      <div class="card">
+        <span class="card-tag"><span class="sw"></span>Tech stack</span>
+        <div class="stat-num">7+</div>
+        <p class="stat-desc">Languages and tools I'm actively learning, from HTML &amp; CSS to Python, Java and SQL.</p>
+      </div>
+      <div class="card quote-card">
+        <p>"I want to keep improving my problem-solving and coding skills, one project at a time, and build a real career in software."</p>
+        <div class="quote-who">
+          <div class="av">S</div>
+          <div>
+            <div class="name">Subham Maity</div>
+            <div class="role">On what drives the work</div>
+          </div>
+        </div>
+      </div>
+      <div class="card lang-card">
+        <span class="card-tag"><span class="sw"></span>Languages</span>
+        <div class="lang-row">
+          <div class="lang-row-top"><span>English</span><span class="pct">Proficient</span></div>
+          <div class="barbg"><div class="barfill" style="width:85%;"></div></div>
+        </div>
+        <div class="lang-row">
+          <div class="lang-row-top"><span>Bengali</span><span class="pct">Native</span></div>
+          <div class="barbg"><div class="barfill" style="width:100%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Skills</span>
+        <h2 class="section-title">What I'm <span class="accent">building with.</span></h2>
+      </div>
+      <p class="section-sub">A mix of core web technologies I'm learning, plus practical office &amp; data skills.</p>
+    </div>
+
+    <div class="grid3">
+      <div class="skill-card">
+        <div class="skill-top" style="background:#E3672E;"><span>HTML/CSS</span></div>
+        <div class="skill-body"><h3>Structure &amp; style</h3><p>Building the markup and layout foundation for every page I make.</p></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top" style="background:#2C2A28;"><span>JS</span></div>
+        <div class="skill-body"><h3>JavaScript</h3><p>Learning to make pages interactive and dynamic.</p></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top" style="background:#3B6E52;"><span>PY</span></div>
+        <div class="skill-body"><h3>Python</h3><p>Sharpening core programming and problem-solving fundamentals.</p></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top" style="background:#8B4A2B;"><span>JAVA</span></div>
+        <div class="skill-body"><h3>Java</h3><p>Coursework-driven object-oriented programming practice.</p></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top" style="background:#2A4D6E;"><span>SQL</span></div>
+        <div class="skill-body"><h3>SQL</h3><p>Working with databases — queries, structure, and data handling.</p></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top" style="background:var(--orange);"><span>GIT</span></div>
+        <div class="skill-body"><h3>Git &amp; GitHub</h3><p>Version control and hosting projects at github.com/subhamsmmait.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" style="background:var(--paper);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Projects</span>
+        <h2 class="section-title">Things I've <span class="accent">actually built.</span></h2>
+      </div>
+      <p class="section-sub">Two projects I've built while learning — a web app and a browser game.</p>
+    </div>
+
+    <div class="grid3" style="grid-template-columns:repeat(2,1fr);">
+      <div class="skill-card">
+        <div class="skill-top" style="background:#2A4D6E;height:140px;"><span style="font-size:22px;">Student Hub</span></div>
+        <div class="skill-body">
+          <h3>Student Hub</h3>
+          <p>A web app built to help students organise their academic life in one place.</p>
+          <a href="https://github.com/subhamsmmait" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:700;color:var(--orange);">
+            View on GitHub ↗
+          </a>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top" style="background:#8B4A2B;height:140px;"><span style="font-size:22px;">Brick Breaker</span></div>
+        <div class="skill-body">
+          <h3>Brick Breaker</h3>
+          <p>A classic arcade-style brick-breaking game built with HTML, CSS and JavaScript.</p>
+          <a href="https://github.com/subhamsmmait" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:700;color:var(--orange);">
+            View on GitHub ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Education</span>
+        <h2 class="section-title">Where it's all <span class="accent">taking shape.</span></h2>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-left">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-title">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-sub">Centurion University of Technology and Management</div>
+        </div>
+      </div>
+      <span class="edu-years">2025 — 2029</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Certifications</span>
+        <h2 class="section-title">Courses I've <span class="accent">completed.</span></h2>
+      </div>
+      <p class="section-sub">Anthropic / Claude course completions, learning how to build with and teach AI tools.</p>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card"><span class="cert-check">✓</span>Claude 101</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Claude Code 101</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Claude Platform 101</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Introduction to Claude Cowork</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Claude Code in Action</div>
+      <div class="cert-card"><span class="cert-check">✓</span>AI Fluency: Framework &amp; Foundations</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Claude with the Anthropic API</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Introduction to Model Context Protocol</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Model Context Protocol: Advanced Topics</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Claude with Google Vertex AI</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Introduction to Agent Skills</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Introduction to Subagents</div>
+      <div class="cert-card"><span class="cert-check">✓</span>AI Fluency: AI Capabilities &amp; Limitations</div>
+      <div class="cert-card"><span class="cert-check">✓</span>AI Fluency for Students</div>
+      <div class="cert-card"><span class="cert-check">✓</span>AI Fluency for Educators</div>
+      <div class="cert-card"><span class="cert-check">✓</span>AI Fluency for K-12 Educators</div>
+      <div class="cert-card"><span class="cert-check">✓</span>Teaching the AI Fluency Framework</div>
+      <div class="cert-card"><span class="cert-check">✓</span>AI Fluency for Nonprofits</div>
+      <div class="cert-card"><span class="cert-check">✓</span>AI Fluency for Small Businesses</div>
+      <div class="cert-card"><span class="cert-check">✓</span>AI Fluency for Builders</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--orange);">Get in touch</span>
+        <div class="contact-big">
+          <span>LET'S</span>
+          <span class="out">TALK</span>
+        </div>
+        <p class="contact-note">Open to internships and junior developer roles. Based in Purba Medinipur, West Bengal — happy to work remote.</p>
+        <p class="contact-note" style="margin-top:16px;">
+          <a href="https://github.com/subhamsmmait" target="_blank" rel="noopener" style="text-decoration:underline;">github.com/subhamsmmait</a><br>
+          <a href="https://www.linkedin.com/in/subham-maity-070040407" target="_blank" rel="noopener" style="text-decoration:underline;">linkedin.com/in/subham-maity</a>
+        </p>
+      </div>
+      <div class="form-card">
+        <h3>Reach out to me</h3>
+        <form onsubmit="event.preventDefault(); window.location.href='mailto:subhammaity456@gmail.com?subject=Portfolio contact from '+encodeURIComponent(document.getElementById('fname').value)+'&body='+encodeURIComponent(document.getElementById('fmsg').value+' — Reply to: '+document.getElementById('femail').value);">
+          <div class="field">
+            <label>Full name</label>
+            <input id="fname" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label>E-mail</label>
+            <input id="femail" type="email" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label>Message</label>
+            <textarea id="fmsg" placeholder="Your message" required></textarea>
+          </div>
+          <button class="send-btn" type="submit">Send message ↗</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Subham Maity. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="https://github.com/subhamsmmait" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/subham-maity-070040407" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:subhammaity456@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
