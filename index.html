@@ -555,6 +555,291 @@ transform: scale(1.02);
 scroll-behavior: auto !important;
 transition-duration: 0.01ms !important;
 animation-duration: 0.01ms !important;
+  /* ===== PROJECT SHOWCASE ===== */
+
+.project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.project-visual {
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.35s ease;
+}
+
+.project-number {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  font: 700 12px var(--sans);
+  color: rgba(255,255,255,.75);
+  letter-spacing: 2px;
+}
+
+.project-label {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  font: 600 10px var(--sans);
+  color: rgba(255,255,255,.75);
+  letter-spacing: 2px;
+}
+
+.project-symbol {
+  font: 900 75px/1 var(--disp);
+  color: white;
+  transition: transform .35s ease;
+  letter-spacing: -5px;
+}
+
+.project-symbol span {
+  color: #F5B79E;
+}
+
+.spendly-visual {
+  background: linear-gradient(135deg, #253C36, #111D19);
+}
+
+.student-visual {
+  background: linear-gradient(135deg, #315D80, #172E43);
+}
+
+.brick-visual {
+  background: linear-gradient(135deg, #8B4A2B, #3B2016);
+}
+
+.blender-visual {
+  background: linear-gradient(135deg, #536F8A, #252F40);
+}
+
+.portfolio-visual {
+  background: linear-gradient(135deg, #D9481D, #852A11);
+}
+
+/* Brick Breaker decoration */
+
+.brick-game {
+  width: 160px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  transform: rotate(-5deg);
+  transition: transform .35s ease;
+}
+
+.brick-game span {
+  height: 24px;
+  border-radius: 5px;
+  background: #F4B183;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,.15);
+}
+
+.brick-game span:nth-child(2),
+.brick-game span:nth-child(4),
+.brick-game span:nth-child(8) {
+  background: #F6F2EC;
+}
+
+.brick-game span:nth-child(5),
+.brick-game span:nth-child(9) {
+  background: #D9481D;
+}
+
+/* Project information */
+
+.project-card .skill-body {
+  padding: 25px;
+}
+
+.project-card h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+  letter-spacing: -.5px;
+}
+
+.project-card .skill-body > p {
+  font-size: 13px;
+  line-height: 1.8;
+  min-height: 72px;
+}
+
+.project-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+/* Technology tags */
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.tech-tags span {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted);
+}
+
+/* Project links */
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 13px;
+  border-radius: 6px;
+  background: var(--orange);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  transition:
+    background .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.project-link:hover {
+  background: var(--orange-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(217,72,29,.2);
+}
+
+.project-link.secondary-link {
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.project-link.secondary-link:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  box-shadow: none;
+}
+
+/* Project card hover */
+
+.project-card {
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 40px rgba(20,18,16,.11);
+  border-color: var(--orange);
+}
+
+.project-card:hover .project-symbol {
+  transform: scale(1.12) rotate(-3deg);
+}
+
+.project-card:hover .brick-game {
+  transform: rotate(0deg) scale(1.08);
+}
+
+.projects-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  margin-top: 35px;
+  padding-top: 25px;
+}
+
+.projects-footer span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+
+.projects-footer a {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.projects-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-visual {
+    min-height: 190px;
+  }
+
+  .project-card .skill-body {
+    padding: 21px;
+  }
+
+  .project-card .skill-body > p {
+    min-height: 0;
+  }
+
+  .projects-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-symbol,
+  .brick-game,
+  .project-link {
+    transition: none;
+  }
+}
 }
 }
 </style>
@@ -709,41 +994,255 @@ animation-duration: 0.01ms !important;
 </section>
 
 <!-- ============ PROJECTS ============ -->
+<!-- ============ PROJECTS ============ -->
 <section id="projects" style="background:var(--paper);border-bottom:1px solid var(--line);">
   <div class="container">
+
     <div class="section-head">
       <div>
-        <span class="eyebrow">Projects</span>
-        <h2 class="section-title">Things I've <span class="accent">actually built.</span></h2>
+        <span class="eyebrow">Selected Work</span>
+        <h2 class="section-title">
+          Things I've <span class="accent">built & explored.</span>
+        </h2>
       </div>
-      <p class="section-sub">Two projects I've built while learning — a web app and a browser game.</p>
+
+      <p class="section-sub">
+        A collection of my coding projects, web applications,
+        creative experiments, and development journey.
+      </p>
     </div>
 
-    <div class="grid3" style="grid-template-columns:repeat(2,1fr);">
-      <div class="skill-card">
-        <div class="skill-top" style="background:#2A4D6E;height:140px;"><span style="font-size:22px;">Student Hub</span></div>
+    <div class="grid3 project-grid">
+
+      <!-- PROJECT 1: SPENDLY -->
+      <article class="skill-card project-card">
+
+        <div class="project-visual spendly-visual">
+          <span class="project-number">01</span>
+          <div class="project-symbol">₹</div>
+          <span class="project-label">FINANCE / WEB APP</span>
+        </div>
+
         <div class="skill-body">
+          <div class="project-status">
+            <span class="status-dot"></span>
+            Backend Deployed
+          </div>
+
+          <h3>Spendly Expense Tracker</h3>
+
+          <p>
+            A personal expense management application for recording
+            expenses, tracking spending, viewing monthly summaries,
+            and managing transactions.
+          </p>
+
+          <div class="tech-tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>SQLAlchemy</span>
+            <span>HTML/CSS/JS</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="https://expense-tracker-3-3ulj.onrender.com/"
+               target="_blank" rel="noopener"
+               class="project-link">
+              Live Demo ↗
+            </a>
+
+            <a href="https://github.com/subhamsmmaity"
+               target="_blank" rel="noopener"
+               class="project-link secondary-link">
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- PROJECT 2: STUDENT HUB -->
+      <article class="skill-card project-card">
+
+        <div class="project-visual student-visual">
+          <span class="project-number">02</span>
+          <div class="project-symbol">S<span>H</span></div>
+          <span class="project-label">STUDENT / PRODUCTIVITY</span>
+        </div>
+
+        <div class="skill-body">
+          <div class="project-status">
+            <span class="status-dot"></span>
+            Student Project
+          </div>
+
           <h3>Student Hub</h3>
-          <p>A web app built to help students organise their academic life in one place.</p>
-          <a href="https://github.com/subhamsmmaity" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:700;color:var(--orange);">
-            View on GitHub ↗
-          </a>
+
+          <p>
+            A student-focused web application designed to bring
+            useful academic organization features together
+            in one convenient place.
+          </p>
+
+          <div class="tech-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="https://github.com/subhamsmmaity"
+               target="_blank" rel="noopener"
+               class="project-link">
+              Explore GitHub ↗
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-top" style="background:#8B4A2B;height:140px;"><span style="font-size:22px;">Brick Breaker</span></div>
+      </article>
+
+
+      <!-- PROJECT 3: BRICK BREAKER -->
+      <article class="skill-card project-card">
+
+        <div class="project-visual brick-visual">
+          <span class="project-number">03</span>
+
+          <div class="brick-game" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+
+          <span class="project-label">GAME / INTERACTIVE</span>
+        </div>
+
         <div class="skill-body">
+          <div class="project-status">
+            <span class="status-dot"></span>
+            Browser Game
+          </div>
+
           <h3>Brick Breaker</h3>
-          <p>A classic arcade-style brick-breaking game built with HTML, CSS and JavaScript.</p>
-          <a href="https://github.com/subhamsmmaity" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:700;color:var(--orange);">
-            View on GitHub ↗
-          </a>
+
+          <p>
+            A classic arcade-style game created for the browser.
+            The project explores interactive gameplay and
+            JavaScript-based game development.
+          </p>
+
+          <div class="tech-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="https://github.com/subhamsmmaity"
+               target="_blank" rel="noopener"
+               class="project-link">
+              Explore GitHub ↗
+            </a>
+          </div>
         </div>
-      </div>
+      </article>
+
+
+      <!-- PROJECT 4: BLENDER INTERIOR -->
+      <article class="skill-card project-card">
+
+        <div class="project-visual blender-visual">
+          <span class="project-number">04</span>
+          <div class="project-symbol">3D</div>
+          <span class="project-label">3D / CREATIVE DESIGN</span>
+        </div>
+
+        <div class="skill-body">
+          <div class="project-status">
+            <span class="status-dot"></span>
+            3D Design
+          </div>
+
+          <h3>Two-Room Interior</h3>
+
+          <p>
+            A Blender interior design project focused on creating
+            a two-room environment, arranging objects, and
+            developing a complete 3D interior scene.
+          </p>
+
+          <div class="tech-tags">
+            <span>Blender</span>
+            <span>3D Modeling</span>
+            <span>Interior Design</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="https://github.com/subhamsmmaity"
+               target="_blank" rel="noopener"
+               class="project-link">
+              My GitHub ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- PROJECT 5: PORTFOLIO -->
+      <article class="skill-card project-card">
+
+        <div class="project-visual portfolio-visual">
+          <span class="project-number">05</span>
+          <div class="project-symbol">&lt;/&gt;</div>
+          <span class="project-label">PERSONAL / WEB DESIGN</span>
+        </div>
+
+        <div class="skill-body">
+          <div class="project-status">
+            <span class="status-dot"></span>
+            Personal Website
+          </div>
+
+          <h3>Developer Portfolio</h3>
+
+          <p>
+            My personal portfolio showcasing my education,
+            technical skills, projects, certifications,
+            and journey as a BCA student.
+          </p>
+
+          <div class="tech-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Responsive Design</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="#home" class="project-link">
+              You're Here ↗
+            </a>
+
+            <a href="https://github.com/subhamsmmaity"
+               target="_blank" rel="noopener"
+               class="project-link secondary-link">
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
     </div>
+
+    <div class="projects-footer">
+      <span>MORE IDEAS. MORE CODE. MORE TO LEARN.</span>
+
+      <a href="https://github.com/subhamsmmaity"
+         target="_blank" rel="noopener">
+        Explore My GitHub ↗
+      </a>
+    </div>
+
   </div>
 </section>
-
 <!-- ============ EDUCATION ============ -->
 <section id="education">
   <div class="container">
