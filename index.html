@@ -842,6 +842,218 @@ animation-duration: 0.01ms !important;
 }
 }
 }
+  /* ===== PROJECT SECTION FIX ===== */
+
+#projects .project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+#projects .project-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+#projects .project-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 40px rgba(20, 18, 16, 0.12);
+  border-color: var(--orange);
+}
+
+#projects .project-visual {
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.3s ease;
+}
+
+#projects .project-card:hover .project-visual {
+  filter: brightness(1.1);
+}
+
+#projects .project-number {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#projects .project-label {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+#projects .project-symbol {
+  font-family: var(--disp);
+  font-size: 70px;
+  font-weight: 900;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+#projects .project-card:hover .project-symbol {
+  transform: scale(1.12);
+}
+
+#projects .spendly-visual {
+  background: linear-gradient(135deg, #253C36, #111D19);
+}
+
+#projects .student-visual {
+  background: linear-gradient(135deg, #315D80, #172E43);
+}
+
+#projects .brick-visual {
+  background: linear-gradient(135deg, #8B4A2B, #3B2016);
+}
+
+#projects .blender-visual {
+  background: linear-gradient(135deg, #536F8A, #252F40);
+}
+
+#projects .portfolio-visual {
+  background: linear-gradient(135deg, #D9481D, #852A11);
+}
+
+#projects .project-card .skill-body {
+  padding: 25px;
+}
+
+#projects .project-card h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+#projects .project-card .skill-body > p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+#projects .project-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+#projects .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+#projects .tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+#projects .tech-tags span {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted);
+}
+
+#projects .project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+#projects .project-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 13px;
+  border-radius: 6px;
+  background: var(--orange);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  transition: transform 0.25s ease,
+              background 0.25s ease;
+}
+
+#projects .project-link:hover {
+  background: var(--orange-dark);
+  transform: translateY(-3px);
+}
+
+#projects .project-link.secondary-link {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+#projects .project-link.secondary-link:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+#projects .projects-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  margin-top: 35px;
+  padding-top: 25px;
+}
+
+#projects .projects-footer span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+
+#projects .projects-footer a {
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  #projects .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #projects .project-visual {
+    min-height: 190px;
+  }
+
+  #projects .project-card .skill-body {
+    padding: 21px;
+  }
+
+  #projects .projects-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 </style>
 </head>
 <body>
